@@ -1,6 +1,13 @@
 def solution(participant, completion):
-    for i in completion:
-        if i in participant:
-            participant.remove(i)
+    participant.sort()
+    completion.sort()
 
-    return participant[0]
+    answer = ''
+    completion.append("")
+
+    for i in range(len(participant)):
+        if (participant[i] != completion[i]):
+            answer = participant[i]
+            break
+
+    return answer
