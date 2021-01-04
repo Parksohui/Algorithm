@@ -10,7 +10,7 @@ def solution(answers):
     count1 = 0
     count2 = 0
     count3 = 0
-    for i in range(length):
+    for i in range(length):  # 정답 확인
         if (answers[i] == A[i % len(A)]):
             count1 += 1
         if (answers[i] == B[i % len(B)]):
@@ -19,6 +19,7 @@ def solution(answers):
             count3 += 1
     result = []
 
+    # 가장 높은 점수 받은 사람 check
     answer.append(count1)
     result.append(1)
     if (answer[0] < count2):
