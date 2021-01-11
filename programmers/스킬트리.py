@@ -8,7 +8,7 @@ def solution(skill, skill_trees):
             for k in range(len(skill)):
                 if (skill[k] == i[j]):  # skill에 있는 글자가 i에 들어있다면
                     temp.append(skill[k])  # list에 추가
-        if (len(temp) == 0):  # list 길이가 1이면 -> skill에 상관없음
+        if (len(temp) == 0):  # list 길이가 0이면 -> skill에 상관없음
             answer += 1
         for j in range(len(temp)):
             if (skill[j] == temp[j]):  # list와 skill을 비교
