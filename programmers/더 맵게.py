@@ -1,15 +1,17 @@
+import heapq
+
 def solution(scoville, K):
     answer = 0
 
-    scoville.sort()  # 정렬
-    while scoville[0] < K:
-        if (len(scoville) == 1):  # 길이가 1이면 K이상으로 만들기 불가
+    heapq.heapify(scoville)  # 기존 list를 힙으로 변환
+
+    while scoville[0] < K:  # K보다 작을때만 반복
+        if len(scoville) == 1:  # 길이가 1이면 더이상 만들 수 없음
             answer = -1
             break
-        temp = scoville.pop(0)  # 가장 맵지 않은 음식의 스코빌 지수
-        temp2 = scoville.pop(0)  # 두 번째로 맵지 않은 음식의 스코빌 지수
-        scoville.append(temp + (temp2 * 2))
-        scoville.sort()  # 정렬
-        answer += 1  # 섞어야 하는 횟수 +1
+        temp = heapq.heappop(scoville)
+        temp2 = heapq.heappop(scoville)
+        heapq.heappush(scoville, temp + temp2 * 2)
+        answer += 1
 
     return answer
